@@ -1,0 +1,20 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>
+            Tipo Documento:
+            <select formControlName="documento"  class="form-control">
+                <option *ngFor="let documento of documentos" [ngValue]="documento.id">{{documento.nombre}}</option>
+            </select>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            Número de documento:
+            <input type="text" minlength="8" maxlength="11"  class="form-control" formControlName="numeroDocumento" number>
+        </label>
+        <br>
+    </div>
+    <button type="submit" [disabled]="!formulario.valid" class="btn btn-primary">Buscar</button>
+</form>
+
+
